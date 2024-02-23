@@ -50,11 +50,11 @@ import { ProfileDirective } from './directives/profile.directive';
 
 
     AuthModule.forRoot({
-      domain: 'kephothosolutions.us.auth0.com',
-      clientId: "NeSibIQPs3rzvu4fQeZpbnaXidZwf7jK",
+      domain: '',
+      clientId: '',
     authorizationParams: {
-      audience: 'https://kephothosolutions.us.auth0.com/api/v2/',
-      redirect_uri: 'http://localhost:4201/timeline'
+      audience: '',
+      redirect_uri: ''
   }
       /*...environ.auth,
       httpInterceptor: {
