@@ -1,0 +1,34 @@
+<section  class="container-fluid">
+  <mat-card class="mat-elevation-z8" *ngIf="Post">
+      <mat-card-header>
+        <mat-card-title-group>
+          <mat-card-title>{{ Post.post_title }}</mat-card-title>
+
+
+          <img mat-card-lg-image src="{{ Post.post_thumbnail }}" alt="Say with Sebo" class="img-fluid w-100" (load)="countLikes()">
+        </mat-card-title-group>
+      </mat-card-header>
+
+      <mat-card-title-group class="flex-row">
+      <mat-card-subtitle class="authorProfile p-1" *ngIf="UserProfile">
+          <img class="author-profile-pic" mat-card-sm-img [src]="ProfileThumbnail"
+            alt="Say it with Sebo" />
+          <small class="p-1">Posted By: {{ UserProfile.name }} </small>
+          <small class="p-1">Created At: {{ Post._creationTime | date }} </small>
+        <small class="p-1"></small>
+      </mat-card-subtitle>
+      </mat-card-title-group>
+      <mat-divider></mat-divider>
+
+      <mat-card-content>
+        {{ Post.post }}
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-fab color="accent"  class="text-white" (click)="like()">
+          <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+          <span class="text-white">{{ Likes }}</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+</section>

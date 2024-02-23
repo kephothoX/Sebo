@@ -1,0 +1,58 @@
+<section class="container-fluid">
+  <mat-card class="mat-elevation-z8" *ngIf="Photos">
+    <mat-card class="mat-elevation-z6 flex-column" *ngFor="let photo of Photos">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{ photo.img_title }}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <img mat-card-lg-image src="{{ photo.img_thumbnail }}" alt="Say with Sebo" class="img-fluid p-1 m-1 w-100"
+            (load)="countLikes(photo._id)" (load)="getUserProfile(photo.created_by)">
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-card-content>
+                {{ photo.img_caption }}
+
+                <button mat-mini-fab color="accent" class="text-white" (click)="like(photo._id)">
+                  <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+                  <span id="{{ photo._id }}" class="text-white"></span>
+                </button>
+              </mat-card-content>
+            </mat-panel-title>
+            <mat-panel-description>
+              <button mat-icon-button color="accent">
+                <mat-icon class="material-symbols-outlined">more_vert</mat-icon>
+              </button>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-card-footer>
+            <mat-card-title-group class="flex-row">
+
+              <mat-card-subtitle class="authorProfile p-1" *ngIf="UserProfile">
+                <img class="author-profile-pic" mat-card-sm-img [src]="ProfileThumbnail" alt="Say it with Sebo" />
+                <small class="p-1">Posted By: {{ UserProfile.name }} </small>
+                <small class="p-1">Created At: {{ photo._creationTime | date }} </small>
+                <small class="p-1"></small>
+              </mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-footer>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card>
+  </mat-card>
+
+  <mat-card *ngIf="!Photos">
+    <h2>No Photos uploaded Yet...</h2>
+  </mat-card>
+
+  <a routerLink="/photos/new" class="floating-btn">
+    <button mat-fab color="accent" class="text-white mat-elevation-z8" aria-label="Add New Photo">
+      <mat-icon class="material-symbols-outlined">add</mat-icon>
+    </button>
+  </a>
+</section>

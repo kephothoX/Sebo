@@ -1,0 +1,25 @@
+{
+  "name": "sebo-api",
+  "version": "1.0.0",
+  "description": "Sebo Convex API",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/kephotho"
+  },
+  "keywords": [
+    "Kephotho"
+  ],
+  "author": "Kephotho Solutions",
+  "license": "MIT",
+  "dependencies": {
+    "convex": "1.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "typescript": "5.3.3"
+  }
+}

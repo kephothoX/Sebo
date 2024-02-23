@@ -1,0 +1,58 @@
+<section class="container-fluid">
+  <mat-card class="mat-elevation-z8" *ngIf="Videos">
+    <mat-card class="mat-elevation-z6 flex-column" *ngFor="let video of Videos">
+      <mat-card-header>
+        <mat-card-title>
+          <h2>{{ video.video_title }}</h2>
+        </mat-card-title>
+        <mat-card-subtitle>
+          <img mat-card-lg-image src="{{ video.video_thumbnail }}" alt="Say with Sebo" class="img-fluid p-1 m-1 w-100"
+            (load)="countLikes(video._id)" (load)="getUserProfile(video.created_by)">
+        </mat-card-subtitle>
+      </mat-card-header>
+
+      <mat-accordion>
+        <mat-expansion-panel hideToggle>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+              <mat-card-content>
+                {{ video.video_caption }}
+
+                <button mat-mini-fab color="accent" class="text-white" (click)="like(video._id)">
+                  <mat-icon class="material-symbols-outlined">favorite</mat-icon>
+                  <span id="{{ video._id }}" class="text-white"></span>
+                </button>
+              </mat-card-content>
+            </mat-panel-title>
+            <mat-panel-description>
+              <button mat-icon-button color="accent">
+                <mat-icon class="material-symbols-outlined">more_vert</mat-icon>
+              </button>
+            </mat-panel-description>
+          </mat-expansion-panel-header>
+          <mat-card-footer>
+            <mat-card-title-group class="flex-row">
+
+              <mat-card-subtitle class="authorProfile p-1" *ngIf="UserProfile">
+                <img class="author-profile-pic" mat-card-sm-video [src]="ProfileThumbnail" alt="Say it with Sebo" />
+                <small class="p-1">Posted By: {{ UserProfile.name }} </small>
+                <small class="p-1">Created At: {{ video._creationTime | date }} </small>
+                <small class="p-1"></small>
+              </mat-card-subtitle>
+            </mat-card-title-group>
+          </mat-card-footer>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-card>
+  </mat-card>
+
+  <mat-card *ngIf="!Videos">
+    <h2>No Videos uploaded Yet...</h2>
+  </mat-card>
+
+  <a routerLink="/Videos/new" class="floating-btn">
+    <button mat-fab color="accent" class="text-white mat-elevation-z8" aria-label="Add New video">
+      <mat-icon class="material-symbols-outlined">add</mat-icon>
+    </button>
+  </a>
+</section>

@@ -1,0 +1,48 @@
+<section  class="container-fluid">
+    <mat-card class="mat-elevation-z6">
+        <mat-card-content>
+            <form [formGroup]="searchForm">
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Search</mat-label>
+                    <mat-hint align="end">Type to Search</mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">search</mat-icon>
+                    <input matInput formControlName="params" placeholder="Search?" (change)="onSubmit()">
+                </mat-form-field>
+            </form>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-divider></mat-divider>
+    <mat-card class="mat-elevation-z8" *ngIf="Posts">
+        <mat-card class="mat-elevation-z6 flex-column" *ngFor="let post of Posts">
+            <mat-card-header>
+                <mat-card-title-group class="flex-row">
+
+                    <img mat-card-lg-image src="{{ post.post_thumbnail }}" alt="Say with Sebo" class="p-1 m-1">
+                    <mat-divider></mat-divider>
+
+                    <mat-card-content class="contentHolder">
+                        <mat-card-title>
+                            <h2>{{ post.post_title }}</h2>
+                        </mat-card-title>
+                        {{ post.post }}
+                    </mat-card-content>
+                </mat-card-title-group>
+            </mat-card-header>
+
+            <mat-card-actions>
+                <a routerLink="/posts/view/{{ post._id }}"><button mat-raised-button color="accent"
+                        class="text-white">See More</button></a>
+
+            </mat-card-actions>
+
+        </mat-card>
+    </mat-card>
+
+    <a routerLink="/posts/new" class="floating-btn">
+        <button mat-fab color="accent" class="text-white mat-elevation-z8" aria-label="Add New Post">
+            <mat-icon class="material-symbols-outlined">add</mat-icon>
+        </button>
+    </a>
+
+</section>

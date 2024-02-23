@@ -1,0 +1,43 @@
+<div class="container">
+
+    <section  class="container-fluid">
+        <mat-card class="w-100">
+            <mat-card-header>
+                <mat-card-title>
+                    <h1>Page Not Found</h1>
+                </mat-card-title>
+                
+                <div mat-card-avatar class="example-header-image"></div>
+                
+            </mat-card-header>
+            <img mat-card-image src="assets/images/404.png">
+            <mat-card-content>
+                <h4>Dont Panic, we couldn't find the page you requested in time.</h4>
+            
+            </mat-card-content>
+            <mat-card-actions class="align-buttons-center">
+                <a routerLink="/personal">
+                    <button mat-raised-button color="accent" class="text-white">
+                        <mat-icon class="material-symbols-outlined">home</mat-icon>
+                        Home
+                    </button>
+                </a>
+            
+                <a routerLink="/business/yms">
+                    <button mat-raised-button  class="text-white bg-yms" (click)="logoutUser()">
+                        <mat-icon class="text-white material-symbols-outlined">home</mat-icon>
+                        Yoga Man Studios Admin
+                    </button>
+                </a>
+            
+                <a routerLink="/business/byn">
+                    <button mat-raised-button  class="bg-byn text-white" (click)="logoutUser()">
+                        <mat-icon class="text-white material-symbols-outlined">home</mat-icon>
+                        Bikram Yoga Studio Admin
+                    </button>
+                </a>
+            
+            </mat-card-actions>
+        </mat-card>
+    </section>
+</div>

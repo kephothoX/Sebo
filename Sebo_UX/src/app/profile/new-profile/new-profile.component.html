@@ -1,0 +1,98 @@
+<section  class="container-fluid">
+    <mat-card>
+        <mat-card-header class="centered">
+            <mat-card-title class="centered"><h2>Create New Profile</h2></mat-card-title>
+        </mat-card-header>
+
+        <mat-card-subtitle class="mat-raised-z6 bg-whiter pb-4 mb-4">
+            <img mat-card-lg-image class="profile-pic" src="assets/images/me.png" alt="Sebo" />
+        </mat-card-subtitle>
+
+        <mat-card-content  class="mat-raised-z4 pt-4 mt-4">
+            <form [formGroup]="newProfileForm" (ngSubmit)="onSubmit()">
+
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Username</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <input matInput formControlName="username" placeholder="Username or Alias">
+                </mat-form-field>
+
+                <div class="spacer"></div>
+
+                <h5>Date Of Birth</h5>
+                <mat-form-field appearance="fill" class="p-1" color="primary">
+                    <input matInput [ngxMatDatetimePicker]="DateOfBirth" formControlName="date_of_birth" placeholder="Date Of Birth">
+                    <mat-datepicker-toggle matSuffix [for]="$any(DateOfBirth)"></mat-datepicker-toggle>
+
+                    <ngx-mat-datetime-picker color="primary" class="bg-whiter"  #DateOfBirth [showSpinners]="true" [enableMeridian]="true"></ngx-mat-datetime-picker>
+                </mat-form-field>
+                <div class="spacer"></div>
+
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Country</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix  class="material-symbols-outlined">info_outline</mat-icon>
+                    <mat-select formControlName="country">
+                        <mat-option *ngFor="let entry of Countries" [value]="entry.Country_Name" (click)="getCountryPrefix(entry.Phone_Prefix)">
+                            {{ entry.Country_Name }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <div class="spacer"></div>
+
+                <h5>Phone Number</h5>
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Phone Number</mat-label>
+                    <mat-icon matPrefix  class="material-symbols-outlined">phone</mat-icon>
+                    <mat-hint align="end"></mat-hint>
+                    <span matPrefix>{{ Phone_Prefix }} </span>
+                    <input type="tel" type="tel" matInput tel="true"  formControlName ="phone_number" placeholder="Phone Number">
+                </mat-form-field>
+                <div class="spacer"></div>
+
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>About</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <textarea matInput formControlName="about"></textarea>
+                </mat-form-field>
+
+                <div class="spacer"></div>
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Hobbies</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <input matInput formControlName="hobbies" placeholder="Your Hobbies">
+                </mat-form-field>
+
+                <div class="spacer"></div>
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Interests</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <input matInput formControlName="interests" placeholder="Your Interests">
+                </mat-form-field>
+                <div class="space"></div>
+
+                <h3>Set Profile Picture</h3>
+                <button mat-raised-button class="p-1">            
+                    <mat-icon class="material-symbols-outlined">attachment</mat-icon>
+                    <input type="file" id="attachments" (change)="onFileChange($event)" accept="*" />
+                </button> 
+                
+            </form>
+            <mat-card-actions class="align-buttons-center">
+                <button type="submit" mat-raised-button [disabled]="!newProfileForm.valid" (click)="onSubmit()">
+                    <mat-icon class="material-symbols-outlined">post</mat-icon>
+                    Create Profile
+                </button>
+
+                <button type="reset" mat-raised-button color="warn" class="text-white" (click)="resetForm()">
+                    <mat-icon class="material-symbols-outlined">cancel</mat-icon>
+                    Clear
+                </button>
+            </mat-card-actions>
+        </mat-card-content>
+    </mat-card>
+</section>

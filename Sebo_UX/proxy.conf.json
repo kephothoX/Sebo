@@ -1,0 +1,8 @@
+{
+  "/api/*": {
+    "target": "https://standing-weasel-117.convex.site",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}

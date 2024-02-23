@@ -1,0 +1,51 @@
+<section  class="container-fluid">
+    <mat-card>
+        <mat-card-header class="centered">
+            <mat-card-title class="centered">
+                <h2>New Post</h2>
+            </mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+            <form [formGroup]="newPostForm">
+
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Post Title</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <input matInput formControlName="post_title"  placeholder="Post Title">
+                </mat-form-field>
+
+                <div class="spacer"></div>
+
+                <mat-form-field appearance="outline" class="p-1">
+                    <mat-label>Post</mat-label>
+                    <mat-hint align="end"></mat-hint>
+                    <mat-icon matPrefix class="material-symbols-outlined">info</mat-icon>
+                    <textarea matInput formControlName="post"></textarea>
+                </mat-form-field>
+
+                <div class="spacer"></div>
+
+                <button mat-raised-button class="p-1">            
+                    <mat-icon class="material-symbols-outlined">attachment</mat-icon>
+                    <input type="file" id="attachments" (change)="onFileChange($event)" accept="*" />
+                </button> 
+
+            </form>
+
+            <mat-card-actions class="align-buttons-center">
+               <button type="submit" mat-raised-button  [disabled] ="!newPostForm.valid" (click)="onSubmit()">
+                    <mat-icon class="material-symbols-outlined">post</mat-icon>
+                    Post
+                </button>
+
+                <button type="reset" mat-raised-button color="warn" class="text-white" (click)="resetForm()">
+                    <mat-icon class="material-symbols-outlined">cancel</mat-icon>
+                    Clear
+                </button>
+            </mat-card-actions>
+
+        </mat-card-content>
+    </mat-card>
+</section>
