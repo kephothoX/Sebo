@@ -1,11 +1,11 @@
 const config =  {
-  "domain": "kephothosolutions.us.auth0.com",
-  "clientId": "NeSibIQPs3rzvu4fQeZpbnaXidZwf7jK",
+  "domain":'',
+  "clientId": '',
   "authorizationParams": {
-    "audience": "{https://kephothosolutions.us.auth0.com/api/v2/"
+    "audience": ''
   },
-  "apiUri": "https://standing-weasel-117.convex.site",
-  "appUri": "https://sebo.vercel.app",
+  "apiUri": '',
+  "appUri": '',
   "errorPath": "/error"
 }
 
