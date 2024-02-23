@@ -30,10 +30,10 @@ import { environment as environ } from 'src/environments/environment';
     MatIconModule,
 
     AuthModule.forRoot({
-      domain: 'kephothosolutions.us.auth0.com',
-      clientId: "NeSibIQPs3rzvu4fQeZpbnaXidZwf7jK",
+      domain: '',
+      clientId: '',
     authorizationParams: {
-      audience: 'https://kephothosolutions.us.auth0.com/api/v2/',
+      audience: '',
       redirect_uri: 'http://localhost:4201/profile/new'
   }
     }),
