@@ -2,12 +2,12 @@
 // `ng build` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 const config =  {
-  "domain": "kephothosolutions.us.auth0.com",
-  "clientId": "NeSibIQPs3rzvu4fQeZpbnaXidZwf7jK",
+  "domain": '',
+  "clientId": '',
   "authorizationParams": {
-    "audience": "{https://kephothosolutions.us.auth0.com/api/v2/"
+    "audience":''
   },
-  "apiUri": "https://standing-weasel-117.convex.site",
+  "apiUri": '',
   "appUri": "http://localhost:4200",
   "errorPath": "/error"
 }
@@ -26,10 +26,10 @@ const { domain, clientId, authorizationParams: { audience }, apiUri, errorPath }
 export const environment = {
   production: false,
   auth: {
-    domain: 'kephothosolutions.us.auth0.com',
-    clientId: "NeSibIQPs3rzvu4fQeZpbnaXidZwf7jK",
+    domain: '',
+    clientId: '',
     authorizationParams: {
-      audience: 'https://kephothosolutions.us.auth0.com/api/v2/'
+      audience: ''
   },
   //apiUri: 'https://standing-weasel-117.convex.site',
   },
